@@ -1,59 +1,93 @@
-# ChatApp
+# Angular Real-time Chat Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+This is a real-time chat application built with **Angular** and integrated with either  **Socket.io**(default) or  **Firebase Firestore(optional)** for messaging. It enables users to send and receive messages instantly with features like typing indicators, timestamps, and message notifications.
 
-## Development server
+## Angular Components
 
-To start a local development server, run:
+- **MessageInputComponent**: For typing and sending messages  
+- **MessageListComponent**: For displaying messages  
+- **ChatRoomComponent**: For organizing the chat room view  
 
-```bash
-ng serve
-```
+## Angular Services
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **SocketService**: Handles Socket.io connections and events  
+- **ChatService**: Manages message sending/receiving and typing notifications  
+- **AuthService**: Handles user authentication  
 
-## Code scaffolding
+## Angular Directives and Pipes
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **ScrollToBottomDirective**: Automatically scrolls to latest messages  
+- **TimeAgoPipe**: Formats message timestamps as "time ago"  
 
-```bash
-ng generate component component-name
-```
+## Core Features
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Real-time messaging with Socket.io  
+- Timestamp display for messages  
+- Typing indicators  
+- Desktop notifications for new messages  
+- Basic user authentication with username  
+- Responsive UI with avatars, message styling, etc.  
 
-```bash
-ng generate --help
-```
+## Technology Stack
 
-## Building
+- **Frontend**: Angular (v16)  
+- **Backend**: Node.js with Socket.io  
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Folder Structure
 
 ```bash
-ng test
+chat-app/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── chat-room/
+│   │   │   ├── message-input/
+│   │   │   ├── message-list/
+│   │   │   └── auth/
+│   │   ├── models/
+│   │   ├── services/
+│   │   ├── pipes/
+│   │   ├── directives/
+│   │   ├── guards/
+│   │   ├── app.module.ts
+│   │   ├── app-routing.module.ts
+│   │   ├── app.component.ts
+│   │   └── app.component.html
+│   ├── assets/
+│   ├── environments/
+│   └── index.html
+├── server/
+│   ├── index.js
+│   └── socket-handler.js
+└── package.json
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+## Getting Started
+1. Clone the repo
 ```bash
-ng e2e
+https://github.com/sachinksamad1/chat-app.git
+cd chat-app
+```
+2. Install dependencies
+```bash
+npm install
+```
+3. Run the app
+```bash
+npm run dev
+```
+4. Access the application
+```bash
+http://localhost:4200
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+ADDITIONAL NOTES:
 
-## Additional Resources
+- The client runs on port 4200 (Angular default).
+- The server runs on port 3000.
+- Make sure both ports are available before running the application.
+- For production deployment, update the socketUrl in environment.prod.ts.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Acknowledgments
+- Angular
+- Firebase
+- Socket.io
